@@ -7,14 +7,13 @@ function getMatrice(){
         canvasCont.appendChild(getLineDiv());
     }
 
+
 }
 
 function getBoxDiv(){
     const boxDiv = document.createElement("div");
 
-    //boxDiv.textContent = "Hello"
     boxDiv.className = "box";
-    boxDiv.setAttribute('draggable', 'false');
 
     return boxDiv;
 }
@@ -45,8 +44,8 @@ function colorSelection(){
 canvasCont.addEventListener("mousedown", function(e){
 
     
+    e.preventDefault();
     
-    e.preventDefault;
     e.target.style.backgroundColor = color;
     paintLogic = true;
     
@@ -56,7 +55,7 @@ canvasCont.addEventListener("mousedown", function(e){
 canvasCont.addEventListener("mouseover", function (e){
 
     
-    e.preventDefault;
+    
     if(paintLogic == true){
         e.target.style.backgroundColor = color;
     }
@@ -65,7 +64,7 @@ canvasCont.addEventListener("mouseover", function (e){
 
 canvasCont.addEventListener("mouseup", function(e){
 
-    e.preventDefault;
+    
     paintLogic = false;
     
 });
