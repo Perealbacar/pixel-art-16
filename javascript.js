@@ -1,7 +1,10 @@
-const canvasCont = document.querySelector(".canvas-container")
+const canvasCont = document.querySelector(".canvas-container");
+let colorPickerContainer = document.querySelector("#colorContainer");
+const colorPicker = document.createElement("input");
 
 let paintLogic = false;
-let color = colorSelection();
+let color = "black";
+
 
 let canvasSize = getCanvasSize();
 
@@ -9,7 +12,7 @@ function getCanvasSize(){
    let size = prompt("What is the canvas size?");
 
    if(size > 64){
-    return 64
+    return 64;
    }
 
    return size;
@@ -42,10 +45,18 @@ function getLineDiv(){
     return boxLine;
 }
 
-
 function colorSelection(){
+    color = document.getElementById("colorChoice").value;
+}
 
-    return "black";
+function getColorPicker(){
+
+    colorPicker.type = "color";
+    colorPicker.onchange = "clickColor(0, 0, 0, 5)"
+    colorPicker.value = "#ff0000";
+    colorPicker.id = "colorChoice";
+    colorPickerContainer.appendChild(colorPicker);
+
 }
 
 canvasCont.addEventListener("mousedown", function(e){
@@ -53,22 +64,26 @@ canvasCont.addEventListener("mousedown", function(e){
     e.preventDefault();    
     e.target.style.backgroundColor = color;
     paintLogic = true;
-    
-
 });
 
 canvasCont.addEventListener("mouseover", function (e){   
     
     if(paintLogic == true){
         e.target.style.backgroundColor = color;
-    }
-    
+    }    
 })
 
 canvasCont.addEventListener("mouseup", function(e){
     
-    paintLogic = false;
-    
+    paintLogic = false;    
 });
 
+colorPicker.addEventListener("input", colorSelection);
+
+
+
+getColorPicker()
+
 getMatrice();
+
+colorSelection();
