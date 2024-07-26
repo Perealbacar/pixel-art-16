@@ -14,7 +14,8 @@
 }
 
 body{
-    margin:0;
+    margin: 0px;
+    padding: 0px;
 }
 
 header{
@@ -27,26 +28,42 @@ header{
     box-shadow:  0px -2px 4px  black;
 }
 
-.canvas-container{
+.container{
+    width: 960px;
+}
 
-    
+.canvas-container{
+    background: honeydew;
+    display: flex;
+    flex-direction: row;
+    height: 960px;
+       
 }
 
 .box{
 
-    flex: 0 0 32px;
-    height: 32px;
-    width: 32px;
+    flex: 1 1 auto;
+
+    justify-content: space-between;
+    align-items:stretch;
+
     border: solid;
+    flex-direction: row;
+
     border-width: 1px;
     border-color: var(--text10);
     background-color: var(primary);
     
 }
 
-.line{
-    display:flex;
+.line{   
+
+    display: flex;
     flex: 1 1 auto;
+
+    align-items: stretch;
+    justify-content: space-between;
+    flex-direction:column;
 }
 
 
