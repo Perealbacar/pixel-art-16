@@ -59,6 +59,8 @@ function getColorPicker(){
 
 }
 
+//Events
+
 canvasCont.addEventListener("mousedown", function(e){
     
     e.preventDefault();    
