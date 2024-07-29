@@ -4,30 +4,46 @@ const colorPickerContainer = document.querySelector("#colorContainer");
 const colorPicker = document.createElement("input");
 const buttonClearCanvas = document.createElement("button");
 const buttonToggleBorder = document.createElement("button");
+const canvasSizeInput = document.createElement("input");
+const canvasSizeSubmit = document.createElement("button");
+const sizeHelper = document.createElement("div");
 
 let myBoxes;
+let myCanvas;
 let gridStatus = true;
 let paintLogic = false;
 let color = "black";
-let canvasSize = getCanvasSize();
+let canvasSize = 16;
 
-function getCanvasSize(){
-   let size = prompt("What is the canvas size?");
 
-   if(size > 64){
+
+function getCanvasSize(){   
+
+   if(canvasSize > 64){
     return 64;
    }
-   return size;   
+   return canvasSize;   
 }
 
 function getMatrice(){
+
+    canvasSize = getCanvasSize();
     
     for(a = 0; a < canvasSize; a++){
         canvasCont.appendChild(getLineDiv());
     }
 
     myBoxes = canvasCont.querySelectorAll(".box");
+    myCanvas  = canvasCont.querySelectorAll("div");
 }
+
+function emptyCanvas(){
+    myCanvas.forEach((item) => {
+        item.remove();
+    });   
+
+}
+
 
 function getBoxDiv(){
     const boxDiv = document.createElement("div");
@@ -52,6 +68,7 @@ function getTools(){
     getColorPicker();
     getClearCanvasButton();
     getToggleButton();     
+    getCanvasSizeInput();
     
 }
 
@@ -90,6 +107,23 @@ function getToggleButton(){
     tools.appendChild(buttonToggleBorder);
 }
 
+function getCanvasSizeInput(){
+    canvasSizeInput.type = "text"
+    canvasSizeInput.textContent = "Canvas Size: ";
+
+    const sizeLabel = document.createElement("label");
+    sizeLabel.textContent = "Canvas Size: ";
+    canvasSizeSubmit.textContent = "Apply Size";
+
+    sizeHelper.textContent = "Max Canvas Size = 64";
+
+    tools.appendChild(sizeLabel);
+    tools.appendChild(canvasSizeInput);
+    tools.appendChild(sizeHelper);
+    tools.appendChild(canvasSizeSubmit);
+    
+}
+
 let desiredBorder = "none";
 
 function toggleBorder(){
@@ -118,11 +152,6 @@ function toggleBorder(){
 }
 
 
-
-
-
-
-
 //Events
 
 canvasCont.addEventListener("mousedown", function(e){
@@ -149,6 +178,12 @@ colorPicker.addEventListener("input", colorSelection);
 buttonClearCanvas.addEventListener("click", clearCanvas);
 
 buttonToggleBorder.addEventListener("click", toggleBorder);
+
+canvasSizeSubmit.addEventListener("click", () => {
+    canvasSize = canvasSizeInput.value;
+    emptyCanvas();
+    getMatrice();
+})
 
 getMatrice();
 
