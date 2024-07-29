@@ -73,7 +73,7 @@ header{
 }
 
 .canvas-container{
-    background: honeydew;
+    background-color: var(--background);
     display: flex;
     flex-direction: row;
     align-items: stretch;
@@ -101,8 +101,7 @@ header{
     border: solid;
     flex-direction: row;
     border-width: 1px;
-    border-color: var(--text10);
-    background-color: var(primary);    
+    border-color: var(--text10);   
 }
 
 .line{ 
