@@ -10,17 +10,13 @@
 
 *{
   font-family: Inter,Helvetica Neue,Helvetica,Arial,sans-serif;
-  background-color: var(--background); 
 }
 
 html, body{
     margin: 0px;
     padding: 0px;
-
     height:100%;
-    width: 100%;
-
-    
+    width: 100%;    
 }
 
 article{
@@ -29,32 +25,50 @@ article{
     display: flex;
     flex-direction: column;
     align-items: stretch;
-
-
+    background-color: var(--background);
 }
 
 .main{
-    margin-left: 12px;
-    flex-grow:1;
     
+    padding-top: 48px;
+    flex-grow:1;
+    display: flex;
+    flex-direction: row;
+    align-items:flex-start;
+    justify-content: center;
+    gap: 24px;
 }
 
 header, main, footer{
     flex-shrink: 0;
 }
 
+#colorContainer{
+    display: flex;
+    align-items: center;
+    gap: 12px
+}
+
 header{
-    color: var(--text);    
+    color: var(--background);
+    background-color: var(--primary);    
     font-size: 18px;
     font-weight: 700;
     padding: 12px 32px;
     border-width: 1px;
     border-color: var(--text);
-    box-shadow:  0px -2px 4px  black;
+
+    box-shadow: 0px -2px 4px 4px grey;
+    
 }
 
 .container{
     width: 960px;
+    background-color: var(--text10);
+    padding: 16px;
+    border-radius: 8px;
+    flex-shrink: 0;
+
     
 }
 
@@ -62,38 +76,50 @@ header{
     background: honeydew;
     display: flex;
     flex-direction: row;
-    height: 960px;  
-       
-}
-
-.box{
-
-    flex: 1 1 auto;
-
-    justify-content: space-between;
-    align-items:stretch;
-
-    border: solid;
-    flex-direction: row;
-
-    border-width: 1px;
-    border-color: var(--text10);
-    background-color: var(primary);
+    align-items: stretch;
+    height: 960px;
     
 }
 
-.line{   
+.tools{
+    background-color: var(--text10);
+    padding: 12px 24px;
 
+    flex-direction: column;
+    display:flex;
+    gap: 12px;
+    border-radius: 8px;
+    flex-basis: 62px;
+    align-items: center;
+    justify-content: center;
+}
+
+.box{
+    flex: 1 1 auto;
+    justify-content: space-between;
+    align-items:stretch;
+    border: solid;
+    flex-direction: row;
+    border-width: 1px;
+    border-color: var(--text10);
+    background-color: var(primary);    
+}
+
+.line{ 
     display: flex;
     flex: 1 1 auto;
-
     align-items: stretch;
-    justify-content: space-between;
     flex-direction:column;
 }
 
 footer{
-    background-color: red;
+    background-color: var(--primary);
+    color: var(--background);
+
+    font-size: 24px;
+    font-weight: bold;
+    padding: 14px;
+    padding-left: 32px;
 }
 
 
