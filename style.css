@@ -5,7 +5,9 @@
     --secondary: #8eefec;
     --accent: #526ae6;
 
-    --text10: rgba(33, 6, 5, 0.1);
+    --text10: #21060520;
+    --text40: #21060540;
+    --text60: #21060560;
 }
 
 *{
@@ -119,6 +121,35 @@ footer{
     font-weight: bold;
     padding: 14px;
     padding-left: 32px;
+}
+
+button{
+
+    
+    align-items: stretch;
+
+    width: 160px;
+    font-size: 16px;
+    font-weight: 700;
+
+
+    padding: 12px 24px;
+
+    border: solid;
+    border-color: var(--background);
+    border-radius: 24px;
+    background-color: var(--text40);
+    border-width: 2px;
+
+    transition: 0.1s;
+}
+
+button:hover{
+
+    cursor: pointer;
+
+    box-shadow: 2px 2px 8px 2px grey;
+
 }
 
 
